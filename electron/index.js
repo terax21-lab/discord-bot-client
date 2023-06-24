@@ -41,12 +41,12 @@ async function createWindow() {
 	session.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
 		if (
 			[
-				"https://discord.com/api/v10/users/@me/library",
-				"https://discord.com/api/v10/users/@me/guilds/premium/subscriptions",
-				"https://discord.com/api/v10/science",
+				"https://discord.com/api/v9/users/@me/library",
+				"https://discord.com/api/v9/users/@me/guilds/premium/subscriptions",
+				"https://discord.com/api/v9/science",
 			].includes(details.url) ||
-			details.url.includes("https://discord.com/api/v10/users/@me/billing/trials/") ||
-			details.url.includes("https://discord.com/api/v10/users/@me/applications/")
+			details.url.includes("https://discord.com/api/v9/users/@me/billing/trials/") ||
+			details.url.includes("https://discord.com/api/v9/users/@me/applications/")
 		) {
 			return callback({ cancel: true });
 		}
